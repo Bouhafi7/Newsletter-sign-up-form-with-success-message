@@ -1,0 +1,45 @@
+@use './media' as *;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.container{
+    margin: auto;
+    padding: 0 20px;
+    @include max-sm{
+        width: 100%;
+    }
+    @include min-md{
+        width: 700px;
+    }
+    @include min-lg{
+        width: 900px;
+    }
+}
+
+@mixin centerY{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin centerAround{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@mixin centering {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin column {
+    display: flex;
+    flex-direction: column;
+}

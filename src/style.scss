@@ -1,0 +1,219 @@
+@use './SASS/media' as *;
+@use './SASS/mixins' as *;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+}
+
+body{
+    min-height: 100vh;
+    background-color: hsl(234, 29%, 20%);
+    @include centering;
+    @include max-sm{
+        display: block;
+    }
+}
+
+.container{
+    @include between;
+    align-items: start;
+    gap: 50px;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 15px;
+    padding: 30px;
+    height: 580px;
+    &.hide{
+        display: none;
+    }
+    .content{
+        flex-basis: 50%;
+        padding: 50px 0 50px 40px;
+        h1{
+            font-size: 50px;
+            color: hsl(234, 29%, 20%);
+            @include max-sm{
+                font-size: 35px;
+            }
+        }
+        .desc{
+            margin: 25px 0 35px;
+            color: hsl(234, 29%, 20%);
+            font-weight: 500;
+            font-size: 15px;
+            @include max-sm{
+                font-size: 14px;
+            }
+        }
+        ul{
+            @include column;
+            gap: 10px;
+            margin-bottom: 35px;
+            li{
+                list-style: none;
+                @include centering;
+                justify-content: start;
+                gap: 15px;
+                @include max-sm{
+                    gap: 10px;
+                    align-items: start;
+                }
+                img{
+                    width: 20px;
+                }
+                p{
+                    font-weight: 500;
+                    color: hsl(234, 29%, 20%);
+                    font-size: 15px;
+                    @include max-sm{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        form{
+            @include column;
+            div {
+                @include between;
+                label{
+                    font-size: 12px;
+                    font-weight: 600;
+                    letter-spacing: .5px;
+                    color: hsl(234, 29%, 20%);
+                }
+                .email-err{
+                    font-weight: 500;
+                    font-size: 11px;
+                    letter-spacing: 0.5px;
+                    color: #ff0000cc;
+                    display: none;
+                    &.notValid {
+                        display: block;
+                    }
+                }
+            }
+            input[type="email"],input[type="submit"]{
+                padding: 18px;
+                border-radius: 8px;
+                font-weight: 600;
+                outline: none;
+            }
+            input[type="email"]{
+                border: 2px solid hsl(231, 7%, 60%);
+                color: hsl(234, 29%, 20%);
+                margin: 10px 0 20px;
+                transition: all .2s;
+                &:focus{
+                    border-color: hsl(234, 29%, 20%);
+                }
+                &.notValid{
+                    background-color: #ff000021;
+                    border-color: #ff0000cc;
+                    color: #ff0000cc;
+                }
+            }
+            input[type="submit"]{
+                background: linear-gradient(90deg, hsl(234, 29%, 20%), hsl(234, 29%, 20%));
+                color: white;
+                border: none;
+                letter-spacing: .5px;
+                transition: all 1s;
+                margin-bottom: 20px;
+                cursor: pointer;
+                transition: all .2s;
+                &:hover{
+                    background: linear-gradient(90deg, #FF5379, hsl(4, 100%, 67%));
+                }
+                &:active{
+                    scale: .96;
+                }
+            }
+        }
+        @include max-md{
+            width: 100%;
+            padding: 0 20px;
+        }
+    }
+    .pic{
+        height: 100%;
+        width: 50%;
+        background-image: url(./assets/illustration-sign-up-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 20px;
+        @include max-md{
+            background-image: url(./assets/illustration-sign-up-mobile.svg);
+            width: 100%;
+            height: 250px;
+            border-radius: 0 0 20px 20px;
+        }
+    }
+    @include max-lg{
+        height: 650px;
+    }
+    @include max-md{
+        flex-direction: column-reverse;
+    }
+    @include max-sm{
+        height: auto;
+        padding: 0;
+        border-radius: 0;
+        gap: 30px;
+    }
+}
+
+.subsribing-container{
+    display: none;
+    width: 350px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    &.show{
+        display: block;
+    }
+    img{
+        width: 55px;
+    }
+    h1{
+        color: hsl(234, 29%, 20%);
+        font-size: 35px;
+        line-height: 1.1;
+        margin: 15px 0;
+    }
+    p{
+        font-size: 14px;
+        margin-bottom: 25px;
+        span{
+            font-weight: 600;
+        }
+    }
+    button{
+        width: 100%;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 600;
+        outline: none;
+        background: linear-gradient(90deg, hsl(234, 29%, 20%), hsl(234, 29%, 20%));
+        color: white;
+        border: none;
+        letter-spacing: .5px;
+        transition: background-color 1s;
+        cursor: pointer;
+        transition: all .2s;
+        &:hover{
+            background: linear-gradient(90deg, #FF5379, hsl(4, 100%, 67%));
+        }
+        &:active{
+            scale: .96;
+        }
+    }
+    @include max-sm{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
